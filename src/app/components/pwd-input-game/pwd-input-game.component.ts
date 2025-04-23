@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {PasswordRule} from "../../interfaces/password.rule.interface";
 import {rulesList} from "../../constants/password-rule-list";
+import {timer} from "rxjs";
 
 @Component({
   selector: 'pwd-input-game',
@@ -24,6 +25,7 @@ export class PwdInputGameComponent {
   }
 
   public onPasswordChange(newValue: string): void {
+    console.warn(newValue, newValue.includes('👍'))
     this.validRules = [];
     this.errorRules = [];
     for (let rule of this.currentRules) {
@@ -37,6 +39,24 @@ export class PwdInputGameComponent {
       if (validateCurrentPassword && rule.rule === this.maxRulePassed) {
         this.maxRulePassed++;
       }
+      this._verifyAllValidRules();
+      console.warn(this.maxRulePassed)
     }
+  }
+
+  private _verifyAllValidRules(): void {
+    if (this.maxRulePassed === this.currentRules.length + 1) {
+      timer(500).subscribe(() => {
+        alert("Congratulations GOOD Password!!!!");
+        this._resetGame();
+      });
+    }
+  }
+
+  private _resetGame(): void {
+    this.password = '';
+    this.maxRulePassed = 1;
+    this.validRules = [];
+    this.errorRules = [];
   }
 }

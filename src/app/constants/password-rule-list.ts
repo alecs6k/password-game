@@ -51,37 +51,13 @@ export const rulesList: PasswordRule[] = [
     rule: 7,
     description: 'Your password must include a roman numeral.',
     validatePassword: (pwd: string): boolean => {
-      const regex: RegExp = /\b(M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3}))\b/i;
+      const regex: RegExp = /[IVXLCDM]/;
       return regex.test(pwd);
     }
   },
   {
     rule: 8,
-    description: 'The roman numerals in your password should multiply to 35.',
-    validatePassword: (pwd: string): boolean => {
-      const regex: RegExp = /\b(M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3}))\b/i;
-      const match = pwd.match(regex);
-
-      if (!match) return false;
-
-      const roman = match[0].toUpperCase();
-      const value = romanToInt(roman);
-      return value % 35 === 0;
-    }
+    description: 'Your password must include a like emoji',
+    validatePassword: (pwd: string): boolean => pwd.includes("👍")
   }
 ];
-
-const romanToInt = (roman: string): number => {
-  const map: Record<string, number> = {
-    I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000
-  };
-  let total = 0, prev = 0;
-
-  for (let i = roman.length - 1; i >= 0; i--) {
-    const curr = map[roman[i]];
-    total += (curr < prev) ? -curr : curr;
-    prev = curr;
-  }
-
-  return total;
-};
