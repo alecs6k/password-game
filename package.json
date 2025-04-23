@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --base-href https://alecs6k.github.io/password-game/ && npx angular-cli-ghpages --dir=dist/password-game"
   },
   "private": true,
   "dependencies": {
