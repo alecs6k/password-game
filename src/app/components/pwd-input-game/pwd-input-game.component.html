@@ -1,0 +1,21 @@
+<section class="pwd-input-game-content">
+  <mat-form-field class="pwd-input-game">
+    <mat-label>Please choose a password</mat-label>
+    <input matInput [(ngModel)]="password" (ngModelChange)="onPasswordChange($event)">
+  </mat-form-field>
+  <section class="pwd-input-game-validations">
+    <ng-container *ngFor="let item of errorRules">
+      <pwd-validate-message
+        [errorMessage]="true"
+        [ruleNumber]="item.rule"
+        [messageDescription]="item.description">
+      </pwd-validate-message>
+    </ng-container>
+    <ng-container *ngFor="let item of validRules">
+      <pwd-validate-message
+        [ruleNumber]="item.rule"
+        [messageDescription]="item.description">
+      </pwd-validate-message>
+    </ng-container>
+  </section>
+</section>

@@ -1,0 +1,24 @@
+<section
+  @fadeIn
+  class="pwd-validate-message-container"
+  [ngClass]="{'pwd-validate-message-container-error': errorMessage}">
+  <section
+    class="pwd-validate-message-header"
+    [ngClass]="{'pwd-validate-message-header-error': errorMessage}">
+    <label>
+      <i
+        class="fa-solid fa-check pwd-header-icon"
+        *ngIf="!errorMessage"></i>
+      <i
+        class="fa-solid fa-xmark"
+        [ngClass]="{'pwd-header-icon-error': errorMessage}"
+        *ngIf="errorMessage"></i>
+      Rule {{ruleNumber}}
+    </label>
+  </section>
+  <section
+    class="pwd-validate-message-description"
+    [ngClass]="{'pwd-validate-message-description-error': errorMessage}">
+    <p>{{messageDescription}}</p>
+  </section>
+</section>

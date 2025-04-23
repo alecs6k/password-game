@@ -1,0 +1,38 @@
+.pwd-validate-message-container {
+  width: 100%;
+  border: #a6c79d solid 2px;
+  border-radius: 15px;
+  margin: 0 10px 15px 10px;
+  overflow: hidden;
+  font-size: 17px;
+}
+
+.pwd-validate-message-header {
+  background-color: #aef3ae;
+  padding: 10px 20px;
+}
+
+.pwd-validate-message-description {
+  background-color: #e3ffe3;
+  padding: 10px 20px;
+}
+
+.pwd-validate-message-container-error {
+  border: #ff2929 solid 2px;
+}
+
+.pwd-validate-message-header-error {
+  background-color: #ffc7c7;
+}
+
+.pwd-validate-message-description-error {
+  background-color: #ffecec;
+}
+
+.pwd-header-icon {
+  color: #2d8136;
+}
+
+.pwd-header-icon-error {
+  color: #ff0b0b;
+}

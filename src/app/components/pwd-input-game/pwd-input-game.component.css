@@ -1,0 +1,17 @@
+.pwd-input-game-content {
+  width: 600px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pwd-input-game-validations {
+  width: 100%;
+}
+
+.pwd-input-game {
+  font-size: 17px;
+  width: 300px;
+}
